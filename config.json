@@ -35,11 +35,11 @@
     {
       "key": "context",
       "type": "single",
-      "label": "필요한 컨텍스트 길이는?",
+      "label": "필요한 컨텍스트 크기는?",
       "options": [
         { "value": "short", "label": "짧은 문답", "weights": { "gpt5": 1, "claude": 1, "gemini": 1, "grok": 1 } },
-        { "value": "mid", "label": "일반적인 작업", "weights": { "gpt5": 3, "claude": 2, "gemini": 2 } },
-        { "value": "long", "label": "장편 글쓰기, 대규모 프로젝트 코딩", "weights": { "gemini": 4 } }
+        { "value": "mid", "label": "일반적인 작업", "weights": { "gpt5": 1, "claude": 1, "gemini": 1 } },
+        { "value": "long", "label": "장편 글쓰기, 대규모 프로젝트 코딩", "weights": { "gemini": 3 } }
       ]
     },
     {
@@ -49,7 +49,7 @@
       "options": [
         { "value": "basic", "label": "기본", "weights": {} },
         { "value": "mid", "label": "중급", "weights": {} },
-        { "value": "high", "label": "고난도(수학/과학/코딩)", "weights": { "claude": 3, "gpt5": 2, "gemini": 1 } }
+        { "value": "high", "label": "고난도(수학/과학/코딩)", "weights": { "claude": 2, "gpt5": 2, "gemini": 2 } }
       ]
     },
     {
@@ -57,7 +57,7 @@
       "type": "single",
       "label": "개인정보/컴플라이언스 민감도는?",
       "options": [
-        { "value": "high", "label": "높음(보수적 정책 선호)", "weights": { "claude": 2, "gemini": 1 } },
+        { "value": "high", "label": "높음 (보수적 정책 선호)", "weights": { "claude": 0, "gemini": 0 } },
         { "value": "mid", "label": "보통", "weights": {} },
         { "value": "low", "label": "낮음", "weights": {} }
       ]
@@ -80,7 +80,7 @@
         { "value": "summary", "label": "요약/출처", "weights": { "perplexity": 3, "gemini": 1, "grok": 1 } },
         { "value": "code", "label": "코드", "weights": { "claude": 3, "gpt5": 3, "gemini": 2 } },
         { "value": "image", "label": "이미지", "weights": { "gemini": 3, "grok": 2, "gpt5": 2 } },
-        { "value": "video", "label": "영상", "weights": { "grok": 3, "gemini": 4 } }
+        { "value": "video", "label": "영상", "weights": { "grok": 2, "gemini": 3 } }
       ]
     },
     {
@@ -89,7 +89,7 @@
       "label": "검열의 수준이 중요한가요?",
       "options": [
         { "value": "summary", "label": "검열은 있어도 된다", "weights": { "gemini": 0 } },
-        { "value": "code", "label": "검열이 없어야 한다", "weights": { "grok": 8 } }
+        { "value": "code", "label": "검열이 없어야 한다", "weights": { "grok": 7 } }
       ]
     },    
     {
