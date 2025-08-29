@@ -3,8 +3,8 @@
   "steps": [
     {
       "key": "purpose",
-      "type": "single",
-      "label": "어떤 용도가 가장 중요한가요?",
+      "type": "multi",
+      "label": "어떤 용도가 가장 중요한가요? (복수선택)",
       "options": [
         { "value": "search", "label": "검색·사실 탐색 (출처 포함)", "weights": { "perplexity": 3, "gpt5": 1 } },
         { "value": "coding", "label": "코딩·에이전트·자동화", "weights": { "claude": 3, "gpt5": 2, "gemini": 2 } },
@@ -24,7 +24,7 @@
     {
       "key": "modal",
       "type": "multi",
-      "label": "멀티모달에서 중요한 것은?",
+      "label": "멀티모달에서 중요한 것은? (복수선택 가능)",
       "options": [
         { "value": "imggen", "label": "이미지 생성", "weights": { "gemini": 3, "grok": 2, "gpt5": 2 } },
         { "value": "vidgen", "label": "동영상 생성", "weights": { "grok": 2, "gemini": 3 } },
@@ -85,7 +85,7 @@
     },
     {
       "key": "nsfw",
-      "type": "multi",
+      "type": "single",
       "label": "검열의 수준이 중요한가요?",
       "options": [
         { "value": "summary", "label": "검열은 있어도 된다", "weights": { "gemini": 0 } },
