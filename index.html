@@ -267,6 +267,19 @@
       display: none !important;
     }
 
+    /* 결과 화면 안내 문구 스타일 */
+    .result-disclaimer {
+      margin-top: 16px;
+      padding: 12px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      text-align: center;
+    }
+
     :focus-visible {
       outline: 3px solid var(--focus);
       outline-offset: 2px;
@@ -380,6 +393,10 @@
           <button class="btn primary" id="startBtn">바로 가기</button>
           <button class="btn ghost" id="saveImgBtn">이미지 저장</button>
           <button class="btn ghost" id="shareBtn">공유하기</button>
+        </div>
+        <div class="result-disclaimer">
+          이 테스트는 참고 자료일 뿐이며, 정확성을 보장하지는 않습니다.<br>
+          다양한 서비스의 모델들을 직접 사용하며 체험해 보는 게 가장 좋습니다.
         </div>
       </div>
     </div>
