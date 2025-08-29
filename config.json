@@ -1,15 +1,51 @@
 {
-  "models": ["gemini", "grok", "gpt5", "claude", "perplexity"],
+  "models": [
+    "gemini",
+    "grok",
+    "gpt5",
+    "claude",
+    "perplexity"
+  ],
   "steps": [
     {
       "key": "purpose",
       "type": "multi",
       "label": "어떤 용도가 가장 중요한가요? (복수선택)",
       "options": [
-        { "value": "search", "label": "검색·사실 탐색 (출처 포함)", "weights": { "perplexity": 3, "gpt5": 1 } },
-        { "value": "coding", "label": "코딩·에이전트·자동화", "weights": { "claude": 3, "gpt5": 2, "gemini": 2 } },
-        { "value": "writing", "label": "글쓰기·문서 생산성", "weights": { "gpt5": 2, "claude": 2 } },
-        { "value": "multimodal", "label": "이미지/비디오 등 멀티모달", "weights": { "gemini": 3, "grok": 2, "gpt5": 2 } }
+        {
+          "value": "search",
+          "label": "검색·사실 탐색 (출처 포함)",
+          "weights": {
+            "perplexity": 3,
+            "gpt5": 1
+          }
+        },
+        {
+          "value": "coding",
+          "label": "코딩·에이전트·자동화",
+          "weights": {
+            "claude": 3,
+            "gpt5": 2,
+            "gemini": 2
+          }
+        },
+        {
+          "value": "writing",
+          "label": "글쓰기·문서 생산성",
+          "weights": {
+            "gpt5": 2,
+            "claude": 2
+          }
+        },
+        {
+          "value": "multimodal",
+          "label": "이미지/비디오 등 멀티모달",
+          "weights": {
+            "gemini": 2,
+            "grok": 2,
+            "gpt5": 2
+          }
+        }
       ]
     },
     {
@@ -17,8 +53,19 @@
       "type": "single",
       "label": "실시간 최신 정보 반영이 필요한가요?",
       "options": [
-        { "value": "yes", "label": "필요해요", "weights": { "grok": 3, "perplexity": 3 } },
-        { "value": "no", "label": "없어도 돼요", "weights": {} }
+        {
+          "value": "yes",
+          "label": "필요해요",
+          "weights": {
+            "grok": 3,
+            "perplexity": 3
+          }
+        },
+        {
+          "value": "no",
+          "label": "없어도 돼요",
+          "weights": {}
+        }
       ]
     },
     {
@@ -26,10 +73,41 @@
       "type": "multi",
       "label": "멀티모달에서 중요한 것은? (복수선택 가능)",
       "options": [
-        { "value": "imggen", "label": "이미지 생성", "weights": { "gemini": 3, "grok": 2, "gpt5": 2 } },
-        { "value": "vidgen", "label": "동영상 생성", "weights": { "grok": 2, "gemini": 3 } },
-        { "value": "vision", "label": "시각 이해 (이미지 분석)", "weights": { "gemini": 2, "gpt5": 2, "claude": 1 } },
-        { "value": "audio", "label": "음성", "weights": { "gemini": 1, "gpt5": 1, "grok": 1 } }
+        {
+          "value": "imggen",
+          "label": "이미지 생성",
+          "weights": {
+            "gemini": 2,
+            "grok": 2,
+            "gpt5": 2
+          }
+        },
+        {
+          "value": "vidgen",
+          "label": "동영상 생성",
+          "weights": {
+            "grok": 2,
+            "gemini": 2
+          }
+        },
+        {
+          "value": "vision",
+          "label": "시각 이해 (이미지 분석)",
+          "weights": {
+            "gemini": 2,
+            "gpt5": 2,
+            "claude": 1
+          }
+        },
+        {
+          "value": "audio",
+          "label": "음성",
+          "weights": {
+            "gemini": 1,
+            "gpt5": 1,
+            "grok": 1
+          }
+        }
       ]
     },
     {
@@ -37,9 +115,32 @@
       "type": "single",
       "label": "필요한 컨텍스트 크기는?",
       "options": [
-        { "value": "short", "label": "짧은 문답", "weights": { "gpt5": 1, "claude": 1, "gemini": 1, "grok": 1 } },
-        { "value": "mid", "label": "일반적인 작업", "weights": { "gpt5": 1, "claude": 1, "gemini": 1 } },
-        { "value": "long", "label": "장편 글쓰기, 대규모 프로젝트 코딩", "weights": { "gemini": 3 } }
+        {
+          "value": "short",
+          "label": "짧은 문답",
+          "weights": {
+            "gpt5": 1,
+            "claude": 1,
+            "gemini": 1,
+            "grok": 1
+          }
+        },
+        {
+          "value": "mid",
+          "label": "일반적인 작업",
+          "weights": {
+            "gpt5": 1,
+            "claude": 1,
+            "gemini": 0
+          }
+        },
+        {
+          "value": "long",
+          "label": "장편 글쓰기, 대규모 프로젝트 코딩",
+          "weights": {
+            "gemini": 2
+          }
+        }
       ]
     },
     {
@@ -47,9 +148,25 @@
       "type": "single",
       "label": "추론 난이도는 어느 정도인가요?",
       "options": [
-        { "value": "basic", "label": "기본", "weights": {} },
-        { "value": "mid", "label": "중급", "weights": {} },
-        { "value": "high", "label": "고난도(수학/과학/코딩)", "weights": { "claude": 2, "gpt5": 2, "gemini": 2 } }
+        {
+          "value": "basic",
+          "label": "기본",
+          "weights": {}
+        },
+        {
+          "value": "mid",
+          "label": "중급",
+          "weights": {}
+        },
+        {
+          "value": "high",
+          "label": "고난도(수학/과학/코딩)",
+          "weights": {
+            "claude": 1,
+            "gpt5": 1,
+            "gemini": 1
+          }
+        }
       ]
     },
     {
@@ -57,9 +174,24 @@
       "type": "single",
       "label": "개인정보/컴플라이언스 민감도는?",
       "options": [
-        { "value": "high", "label": "높음 (보수적 정책 선호)", "weights": { "claude": 0, "gemini": 0 } },
-        { "value": "mid", "label": "보통", "weights": {} },
-        { "value": "low", "label": "낮음", "weights": {} }
+        {
+          "value": "high",
+          "label": "높음 (보수적 정책 선호)",
+          "weights": {
+            "claude": 0,
+            "gemini": 0
+          }
+        },
+        {
+          "value": "mid",
+          "label": "보통",
+          "weights": {}
+        },
+        {
+          "value": "low",
+          "label": "낮음",
+          "weights": {}
+        }
       ]
     },
     {
@@ -67,9 +199,31 @@
       "type": "single",
       "label": "가격 민감도는?",
       "options": [
-        { "value": "free", "label": "무료 중심", "weights": { "perplexity": 2, "grok": 1 } },
-        { "value": "value", "label": "가성비", "weights": { "gemini": 1, "perplexity": 1 } },
-        { "value": "pro", "label": "구독/유료 가능", "weights": { "gpt5": 1, "claude": 1, "gemini": 1 } }
+        {
+          "value": "free",
+          "label": "무료 중심",
+          "weights": {
+            "perplexity": 2,
+            "grok": 1
+          }
+        },
+        {
+          "value": "value",
+          "label": "가성비",
+          "weights": {
+            "gemini": 1,
+            "perplexity": 1
+          }
+        },
+        {
+          "value": "pro",
+          "label": "구독/유료 가능",
+          "weights": {
+            "gpt5": 1,
+            "claude": 1,
+            "gemini": 0
+          }
+        }
       ]
     },
     {
@@ -77,10 +231,41 @@
       "type": "multi",
       "label": "결과물 형태는 무엇이 중요한가요?",
       "options": [
-        { "value": "summary", "label": "요약/출처", "weights": { "perplexity": 3, "gemini": 1, "grok": 1 } },
-        { "value": "code", "label": "코드", "weights": { "claude": 3, "gpt5": 3, "gemini": 2 } },
-        { "value": "image", "label": "이미지", "weights": { "gemini": 3, "grok": 2, "gpt5": 2 } },
-        { "value": "video", "label": "영상", "weights": { "grok": 2, "gemini": 3 } }
+        {
+          "value": "summary",
+          "label": "요약/출처",
+          "weights": {
+            "perplexity": 3,
+            "gemini": 0,
+            "grok": 0
+          }
+        },
+        {
+          "value": "code",
+          "label": "코드",
+          "weights": {
+            "claude": 2,
+            "gpt5": 2,
+            "gemini": 1
+          }
+        },
+        {
+          "value": "image",
+          "label": "이미지",
+          "weights": {
+            "gemini": 2,
+            "grok": 1,
+            "gpt5": 1
+          }
+        },
+        {
+          "value": "video",
+          "label": "영상",
+          "weights": {
+            "grok": 1,
+            "gemini": 2
+          }
+        }
       ]
     },
     {
@@ -88,17 +273,42 @@
       "type": "single",
       "label": "검열의 수준이 중요한가요?",
       "options": [
-        { "value": "summary", "label": "검열은 있어도 된다", "weights": { "gemini": 0 } },
-        { "value": "code", "label": "검열이 없어야 한다", "weights": { "grok": 7 } }
+        {
+          "value": "summary",
+          "label": "검열은 있어도 된다",
+          "weights": {
+            "gemini": 0
+          }
+        },
+        {
+          "value": "code",
+          "label": "검열이 없어야 한다",
+          "weights": {
+            "grok": 10
+          }
+        }
       ]
-    },    
+    },
     {
       "key": "platform",
       "type": "single",
       "label": "주 사용 환경은?",
       "options": [
-        { "value": "mobile", "label": "모바일 중심", "weights": { "perplexity": 0 } },
-        { "value": "web", "label": "웹/데스크톱(API)", "weights": { "gpt5": 0, "gemini": 0 } }
+        {
+          "value": "mobile",
+          "label": "모바일 중심",
+          "weights": {
+            "perplexity": 0
+          }
+        },
+        {
+          "value": "web",
+          "label": "웹/데스크톱(API)",
+          "weights": {
+            "gpt5": 0,
+            "gemini": 0
+          }
+        }
       ]
     }
   ]
