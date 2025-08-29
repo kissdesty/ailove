@@ -104,9 +104,8 @@
           "label": "문서 이해 (OCR 등)",
           "weights": {
             "gemini": 1,
-            "gpt5": 1,
-            "claude": 1
-        }
+            "gpt5": 1
+          }
         },        
         {
           "value": "audio",
