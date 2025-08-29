@@ -1,0 +1,37 @@
+{
+  "gemini": {
+    "name": "Gemini 2.5 Pro",
+    "url": "https://deepmind.google/models/gemini/pro/",
+    "badges": ["멀티모달", "초대형 컨텍스트", "이미지/영상"],
+    "desc": "네이티브 멀티모달과 초대형 컨텍스트를 바탕으로 이미지 생성과 Veo 연계 영상 제작까지 가능한 고성능 모델입니다.",
+    "logo": "G"
+  },
+  "grok": {
+    "name": "Grok 4",
+    "url": "https://x.ai",
+    "badges": ["실시간", "이미지/영상", "X연동"],
+    "desc": "X 연동 실시간 지식과 Grok Imagine 기반 이미지/영상 생성을 제공하는 최신 모델입니다.",
+    "logo": "X"
+  },
+  "gpt5": {
+    "name": "GPT-5",
+    "url": "https://openai.com",
+    "badges": ["멀티모달", "강화 추론", "대규모 컨텍스트"],
+    "desc": "통합 멀티모달과 향상된 추론 및 라우팅으로 고품질 텍스트/이미지 생성과 다양한 워크플로를 지원합니다.",
+    "logo": "5"
+  },
+  "claude": {
+    "name": "Claude 4 Opus",
+    "url": "https://www.anthropic.com/claude/opus",
+    "badges": ["고난도 추론", "코딩", "보수적 정책"],
+    "desc": "복잡한 문제 해결과 코딩·에이전트 워크플로에 특화된 플래그십 모델입니다.",
+    "logo": "C"
+  },
+  "perplexity": {
+    "name": "Perplexity",
+    "url": "https://www.perplexity.ai",
+    "badges": ["실시간 검색", "출처", "멀티모델"],
+    "desc": "실시간 웹 검색과 출처 중심 요약에 강하며 다양한 최신 LLM을 선택해 활용할 수 있습니다.",
+    "logo": "P"
+  }
+}
