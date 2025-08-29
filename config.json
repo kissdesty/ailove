@@ -6,8 +6,8 @@
       "type": "single",
       "label": "어떤 용도가 가장 중요한가요?",
       "options": [
-        { "value": "search", "label": "검색·사실 탐색(출처 포함)", "weights": { "perplexity": 3, "gpt5": 1 } },
-        { "value": "coding", "label": "코딩·에이전트·자동화", "weights": { "claude": 3, "gpt5": 2, "gemini": 1 } },
+        { "value": "search", "label": "검색·사실 탐색 (출처 포함)", "weights": { "perplexity": 3, "gpt5": 1 } },
+        { "value": "coding", "label": "코딩·에이전트·자동화", "weights": { "claude": 3, "gpt5": 2, "gemini": 2 } },
         { "value": "writing", "label": "글쓰기·문서 생산성", "weights": { "gpt5": 2, "claude": 2 } },
         { "value": "multimodal", "label": "이미지/비디오 등 멀티모달", "weights": { "gemini": 3, "grok": 2, "gpt5": 2 } }
       ]
@@ -27,8 +27,8 @@
       "label": "멀티모달에서 중요한 것은?",
       "options": [
         { "value": "imggen", "label": "이미지 생성", "weights": { "gemini": 3, "grok": 2, "gpt5": 2 } },
-        { "value": "vidgen", "label": "동영상 생성", "weights": { "grok": 3, "gemini": 2 } },
-        { "value": "vision", "label": "시각 이해(이미지 분석)", "weights": { "gemini": 2, "gpt5": 2, "claude": 1 } },
+        { "value": "vidgen", "label": "동영상 생성", "weights": { "grok": 2, "gemini": 3 } },
+        { "value": "vision", "label": "시각 이해 (이미지 분석)", "weights": { "gemini": 2, "gpt5": 2, "claude": 1 } },
         { "value": "audio", "label": "음성", "weights": { "gemini": 1, "gpt5": 1, "grok": 1 } }
       ]
     },
@@ -37,9 +37,9 @@
       "type": "single",
       "label": "필요한 컨텍스트 길이는?",
       "options": [
-        { "value": "short", "label": "짧음(≤32k)", "weights": { "gpt5": 1 } },
-        { "value": "mid", "label": "중간(64k~200k)", "weights": { "gpt5": 1, "claude": 1 } },
-        { "value": "long", "label": "매우 김(200k~2M)", "weights": { "gemini": 3 } }
+        { "value": "short", "label": "짧은 문답", "weights": { "gpt5": 1, "claude": 1, "gemini": 1, "grok": 1 } },
+        { "value": "mid", "label": "일반적인 작업", "weights": { "gpt5": 3, "claude": 2, "gemini": 2 } },
+        { "value": "long", "label": "장편 글쓰기, 대규모 프로젝트 코딩", "weights": { "gemini": 4 } }
       ]
     },
     {
@@ -77,10 +77,10 @@
       "type": "multi",
       "label": "결과물 형태는 무엇이 중요한가요?",
       "options": [
-        { "value": "summary", "label": "요약/출처", "weights": { "perplexity": 3 } },
-        { "value": "code", "label": "코드", "weights": { "claude": 2, "gpt5": 2 } },
+        { "value": "summary", "label": "요약/출처", "weights": { "perplexity": 3, "gemini": 1, "grok": 1 } },
+        { "value": "code", "label": "코드", "weights": { "claude": 3, "gpt5": 3, "gemini": 2 } },
         { "value": "image", "label": "이미지", "weights": { "gemini": 3, "grok": 2, "gpt5": 2 } },
-        { "value": "video", "label": "영상", "weights": { "grok": 3, "gemini": 2 } }
+        { "value": "video", "label": "영상", "weights": { "grok": 3, "gemini": 4 } }
       ]
     },
     {
@@ -88,8 +88,8 @@
       "type": "single",
       "label": "주 사용 환경은?",
       "options": [
-        { "value": "mobile", "label": "모바일 중심", "weights": { "perplexity": 1 } },
-        { "value": "web", "label": "웹/데스크톱(API)", "weights": { "gpt5": 1, "gemini": 1 } }
+        { "value": "mobile", "label": "모바일 중심", "weights": { "perplexity": 0 } },
+        { "value": "web", "label": "웹/데스크톱(API)", "weights": { "gpt5": 0, "gemini": 0 } }
       ]
     }
   ]
