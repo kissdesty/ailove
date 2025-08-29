@@ -84,6 +84,15 @@
       ]
     },
     {
+      "key": "nsfw",
+      "type": "multi",
+      "label": "검열의 수준이 중요한가요?",
+      "options": [
+        { "value": "summary", "label": "검열은 있어도 된다", "weights": { "gemini": 0 } },
+        { "value": "code", "label": "검열이 없어야 한다", "weights": { "grok": 5 } }
+      ]
+    },    
+    {
       "key": "platform",
       "type": "single",
       "label": "주 사용 환경은?",
