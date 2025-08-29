@@ -6,13 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>나에게 맞는 AI 서비스는 어떤 것일까?</title>
   <meta name="description" content="간단한 문답으로 취향과 목적에 맞는 AI 서비스를 추천받아보세요.">
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kissdesty.github.io/ailove">
   <meta property="og:title" content="나에게 맞는 AI 서비스는 어떤 것일까?">
   <meta property="og:description" content="간단한 문답으로 취향과 목적에 맞는 AI 서비스를 추천받아보세요.">
   <meta property="og:image" content="https://kissdesty.github.io/ailove/nahornlab_logo_small.png">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="나혼LAB - AI 서비스 추천">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
@@ -20,7 +23,7 @@
   <meta property="twitter:title" content="나에게 맞는 AI 서비스는 어떤 것일까?">
   <meta property="twitter:description" content="간단한 문답으로 취향과 목적에 맞는 AI 서비스를 추천받아보세요.">
   <meta property="twitter:image" content="https://kissdesty.github.io/ailove/nahornlab_logo_small.png">
-  
+
   <link rel="icon" type="image/png" href="nahornlab_logo_small.png">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
@@ -345,6 +348,9 @@
       <div class="title">나에게 맞는 LLM 서비스는</div>
     </header>
 
+    <!-- 메신저 미리보기용 숨겨진 이미지 (첫 번째 이미지로 배치) -->
+    <img src="nahornlab_logo_small.png" alt="나혼LAB" style="display:none;">
+
     <!-- [추가] 시작 랜딩 섹션 -->
     <div id="landing" class="landing" role="region" aria-label="시작 화면">
       <div class="landing-title">나에게 맞는 AI 서비스를 찾아드려요!</div>
@@ -387,7 +393,8 @@
         <span class="footer-right">
           <img
             src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fkissdesty.github.io%2Failove&label=&icon=github&color=%23198754&message=&style=flat&tz=Asia%2FSeoul"
-            alt="페이지 방문자 카운터" referrerpolicy="no-referrer-when-downgrade" decoding="async" loading="eager">
+            alt="페이지 방문자 카운터" referrerpolicy="no-referrer-when-downgrade" decoding="async" loading="lazy"
+            style="pointer-events: none;">
         </span>
       </div>
     </footer>
