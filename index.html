@@ -85,6 +85,18 @@
   .landing-title{font-size:20px; font-weight:700;}
   .landing-sub{color:var(--text-muted); font-size:14px;}
   .landing .start-btn{min-width:140px}
+
+  .footer-row{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    flex-wrap:wrap;
+  }
+  .footer-right{
+    margin-left:auto;
+  }
+  @media (max-width:520px){
+    .footer-row{justify-content:center}
+    .footer-right{margin-left:0}
+  }
 </style>
 </head>
 <body>
@@ -124,10 +136,20 @@
     </div>
   </div>
 
-  <footer style="margin-top:18px;color:var(--text-muted);font-size:12px;text-align:center">
-    ©2025 나혼LAB
-    <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fkissdesty.github.io%2Failove&label=&icon=github&color=%23198754&message=&style=flat&tz=Asia%2FSeoul">
-  </footer>
+  <footer style="margin-top:18px;color:var(--text-muted);font-size:12px;">
+  <div class="footer-row">
+    <span>©2025 나혼LAB</span>
+    <span class="footer-right">
+      <img
+        src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fkissdesty.github.io%2Failove&label=&icon=github&color=%23198754&message=&style=flat&tz=Asia%2FSeoul"
+        alt="페이지 방문자 카운터"
+        referrerpolicy="no-referrer-when-downgrade"
+        decoding="async"
+        loading="eager"
+      >
+    </span>
+  </div>
+</footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
