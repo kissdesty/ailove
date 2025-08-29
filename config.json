@@ -271,20 +271,20 @@
     {
       "key": "nsfw",
       "type": "single",
-      "label": "검열의 수준이 중요한가요?",
+      "label": "검열(성인물,폭력성 등의 제한)이 필요한가요?",
       "options": [
         {
           "value": "summary",
-          "label": "검열은 있어도 된다",
+          "label": "성적 폭력적 컨텐츠 제한은 필요하다",
           "weights": {
             "gemini": 0
           }
         },
         {
           "value": "code",
-          "label": "검열이 없어야 한다",
+          "label": "모든 표현이 자유로워야 한다",
           "weights": {
-            "grok": 10
+            "grok": 8
           }
         }
       ]
