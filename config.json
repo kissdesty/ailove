@@ -284,7 +284,7 @@
           "value": "code",
           "label": "모든 표현이 자유로워야 한다",
           "weights": {
-            "grok": 8
+            "grok": 5
           }
         }
       ]
