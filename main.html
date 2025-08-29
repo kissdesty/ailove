@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>나에게 맞는 AI 서비스는 어떤 것일까?</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Light theme palette */
+    --bg:#ffffff;                 /* page background */
+    --surface:#f7f9fc;            /* card background */
+    --surface-2:#eef2f8;          /* subtle stripes / alt bg */
+    --border:#e3e8ef;             /* borders & dividers */
+    --text:#121619;               /* primary text */
+    --text-muted:#5b6470;         /* secondary text */
+    --accentA:#3D51FE;            /* primary accent (blue/indigo) */
+    --accentB:#9FEB36;            /* secondary accent (lime/green) */
+    --accentGrad: linear-gradient(135deg, var(--accentA), var(--accentB));
+    --focus:#93b0ff;              /* focus ring (derived from accentA) */
+    --ok:#2f9e44;                 /* success */
+    --warn:#ffb020;               /* warning */
+    --error:#e03131;              /* error */
+    --shadow: 0 6px 18px rgba(17, 24, 39, .08);
+    --radius:16px;
+    --radius-sm:12px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;background:var(--bg);color:var(--text);
+    font-family:Pretendard,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+  .app{max-width:520px;margin:0 auto;padding:16px 16px 32px}
+  header{padding:8px 0 16px}
+  .title{font-weight:700;font-size:22px;letter-spacing:.2px}
+  .subtitle{color:var(--text-muted);font-size:14px;margin-top:6px}
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:16px;
+  }
+
+  .progress{height:8px;background:#e9eef6;border-radius:999px;overflow:hidden;margin:12px 0 6px;border:1px solid var(--border)}
+  .bar{height:100%;width:0%;background:var(--accentGrad);transition:width .35s ease}
+
+  .pill{font-size:12px;color:var(--text-muted)}
+
+  .step{display:none;min-height:50vh;display:flex;flex-direction:column;justify-content:space-between}
+
+  .q{font-size:18px;font-weight:700;line-height:1.5;margin:6px 0 10px}
+  .opts{display:grid;gap:10px;margin-top:12px}
+
+  .opt{
+    padding:14px 12px;border-radius:var(--radius-sm);
+    background:#fff;border:1px solid var(--border);
+    display:flex;align-items:center;gap:10px;
+    box-shadow: 0 1px 0 rgba(17, 24, 39, .02);
+  }
+  .opt:hover{border-color:#d7deea}
+  .opt input{display:none}
+  .opt.active{outline:2px solid var(--focus); background: #fbfdff}
+  .opt .badge{
+    font-size:12px;color:var(--text-muted);
+    background:var(--surface-2);border:1px solid var(--border);
+    border-radius:999px;padding:4px 8px;margin-left:auto
+  }
+
+  .nav{display:flex;gap:10px;margin-top:18px}
+  .btn{
+    flex:1;padding:14px 12px;border-radius:12px;border:1px solid var(--border);
+    background:#fff;color:var(--text);font-weight:600;
+    box-shadow: 0 1px 0 rgba(17, 24, 39, .03);
+  }
+  .btn.primary{
+    border:0;background:var(--accentGrad); color:#fff;
+    box-shadow: 0 6px 16px rgba(61,81,254,.2);
+  }
+  .btn:disabled{opacity:.5}
+
+  .result{display:none}
+  .hero{display:flex;align-items:center;gap:12px}
+  .logo{
+    width:48px;height:48px;border-radius:14px;
+    background:conic-gradient(from 180deg at 50% 50%, #fff, #eef4ff);
+    border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accentA)
+  }
+  .kvs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .kv{
+    font-size:12px;color:var(--text);
+    border:1px solid var(--border);
+    background:#fff;
+    padding:6px 10px;border-radius:999px;
+  }
+  .desc{margin-top:10px;color:#2b3138;line-height:1.7;font-size:14px}
+
+  .actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+  .ghost{
+    background:#fff;border:1px solid var(--border); color:var(--text);
+  }
+  .ghost:hover{border-color:#d7deea}
+  .hidden{display:none !important;}
+
+  /* Focus visible for accessibility */
+  :focus-visible{outline:3px solid var(--focus); outline-offset:2px; border-radius:10px}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="title">LLM 추천 도우미</div>
+    <div class="subtitle">한 화면 1문항 · 밝은 테마 · 결과 공유/저장 지원</div>
+  </header>
+
+  <div class="card">
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <div class="pill" id="pill">로딩...</div>
+
+    <div id="steps"></div>
+
+    <div id="result" class="result">
+      <div class="hero">
+        <div class="logo" id="logo">LLM</div>
+        <div>
+          <div class="q" id="recName">추천 결과</div>
+          <div class="kvs" id="kvs"></div>
+        </div>
+      </div>
+      <div class="desc" id="recDesc"></div>
+      <div class="actions">
+        <button class="btn primary" id="startBtn">바로 가기</button>
+        <button class="btn ghost" id="saveImgBtn">이미지 저장</button>
+        <button class="btn ghost" id="shareBtn">공유하기</button>
+        <!--<button class="btn ghost" id="kakaoBtn">카카오톡</button>-->
+      </div>
+    </div>
+  </div>
+
+  <footer style="margin-top:18px;color:var(--text-muted);font-size:12px;text-align:center">
+    ©2025 나혼LAB
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script>
+  // Kakao SDK 초기화(필요시 도메인 등록)
+  try { window.Kakao && Kakao.init('YOUR_KAKAO_JAVASCRIPT_KEY'); } catch(e){}
+
+  const state = {};
+  let config = null;
+  let models = null;
+  let idx = 0;
+
+  const stepsWrap = document.getElementById('steps');
+  const resultEl = document.getElementById('result');
+  const bar = document.getElementById('bar');
+  const pill = document.getElementById('pill');
+
+  async function loadConfigs(){
+    const [cfgRes, modRes] = await Promise.all([
+      fetch('./config.json'),   // 외부 질문/가중치 [MDN Fetch]
+      fetch('./models.json')    // 모델 메타
+    ]);
+    config = await cfgRes.json();
+    models = await modRes.json();
+  }
+
+  function renderSteps(){
+    stepsWrap.innerHTML = '';
+    config.steps.forEach((step, i)=>{
+      const stepEl = document.createElement('div');
+      stepEl.className = 'step';
+      stepEl.dataset.key = step.key;
+
+      const q = document.createElement('div');
+      q.className = 'q';
+      q.textContent = step.label;
+      stepEl.appendChild(q);
+
+      const opts = document.createElement('div');
+      opts.className = 'opts';
+
+      step.options.forEach(opt=>{
+        const label = document.createElement('label');
+        label.className = 'opt';
+
+        const input = document.createElement('input');
+        input.type = (step.type==='multi' ? 'checkbox' : 'radio');
+        input.name = step.key;
+        input.value = opt.value;
+
+        label.appendChild(input);
+        const spanText = document.createElement('span');
+        spanText.textContent = opt.label;
+        label.appendChild(spanText);
+
+        label.addEventListener('click', ()=>{
+          if(step.type==='single'){
+            document.querySelectorAll(`input[name="${step.key}"]`).forEach(i=>i.closest('.opt').classList.remove('active'));
+            input.checked = true; label.classList.add('active');
+            state[step.key] = input.value;
+          } else {
+            input.checked = !input.checked;
+            label.classList.toggle('active', input.checked);
+            const list = new Set(state[step.key] || []);
+            if(input.checked) list.add(input.value); else list.delete(input.value);
+            state[step.key] = [...list];
+          }
+        });
+
+        opts.appendChild(label);
+      });
+
+      stepEl.appendChild(opts);
+
+      const nav = document.createElement('div');
+      nav.className = 'nav';
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'btn';
+      prevBtn.textContent = '이전';
+      prevBtn.disabled = i===0;
+      prevBtn.addEventListener('click', ()=> { if(idx>0){ idx--; showStep(idx);} });
+
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'btn primary';
+      nextBtn.textContent = (i===config.steps.length-1 ? '결과 보기' : '다음');
+      nextBtn.addEventListener('click', ()=> {
+        if(i===config.steps.length-1){ showResult(); } else { idx++; showStep(idx); }
+      });
+
+      nav.appendChild(prevBtn);
+      nav.appendChild(nextBtn);
+      stepEl.appendChild(nav);
+
+      if(i!==0) stepEl.style.display='none';
+      stepsWrap.appendChild(stepEl);
+    });
+
+    updateProgress(0);
+  }
+
+  function updateProgress(i){
+    const total = config.steps.length;
+    const pct = Math.round((i/(total-1))*100);
+    bar.style.width = Math.max(6, pct) + '%';
+    pill.textContent = (i+1) + '/' + total;
+  }
+
+  function showStep(i){
+    [...document.querySelectorAll('.step')].forEach((s,j)=> s.style.display = (i===j? 'flex':'none'));
+    updateProgress(i);
+  }
+
+  function scoreAndRecommend(){
+    const scores = {};
+    config.models.forEach(m=> scores[m]=0);
+
+    config.steps.forEach(step=>{
+      const ans = state[step.key];
+      if(ans==null) return;
+      const map = {}; step.options.forEach(o=> map[o.value] = o.weights || {});
+      if(step.type==='single'){
+        const w = map[ans] || {};
+        Object.entries(w).forEach(([m, v])=> scores[m]=(scores[m]||0)+v);
+      } else {
+        (ans||[]).forEach(v=>{
+          const w = map[v] || {};
+          Object.entries(w).forEach(([m, val])=> scores[m]=(scores[m]||0)+val);
+        });
+      }
+    });
+
+    return Object.entries(scores).sort((a,b)=> b[13]-a[13]);
+  }
+
+  function renderResult(key){
+    const m = models[key];
+    document.getElementById('recName').textContent = m.name;
+    document.getElementById('logo').textContent = m.logo;
+    const kvs = document.getElementById('kvs');
+    kvs.innerHTML = '';
+    (m.badges||[]).forEach(b=>{
+      const span = document.createElement('span'); span.className='kv'; span.textContent=b; kvs.appendChild(span);
+    });
+    document.getElementById('recDesc').textContent = m.desc;
+    document.getElementById('startBtn').onclick = ()=> window.open(m.url,'_blank');
+  }
+
+  function showResult(){
+    document.getElementById('steps').classList.add('hidden');
+    resultEl.style.display='block';
+    bar.style.width='100%';
+    pill.textContent='결과';
+    renderResult(scoreAndRecommend());
+  }
+
+  // 공유 & 저장
+  function captureResult(){
+    if(!window.html2canvas){ alert('이미지 저장 라이브러리가 로드되지 않았습니다.'); return; }
+    html2canvas(document.querySelector('#result'), {backgroundColor:'#ffffff', scale:2}).then(canvas=>{
+      const a = document.createElement('a');
+      a.download = 'llm-recommendation.png';
+      a.href = canvas.toDataURL('image/png');
+      a.click();
+    });
+  }
+  async function shareNative(){
+    const title = document.getElementById('recName').textContent;
+    const text = document.getElementById('recDesc').textContent;
+    const url = location.href;
+    if(navigator.share){ try{ await navigator.share({title, text, url}); }catch(e){} }
+    else alert('공유 시트를 지원하지 않습니다.');
+  }
+  function shareKakao(){
+    if(!(window.Kakao && Kakao.Share)){ alert('카카오 SDK가 준비되지 않았습니다.'); return; }
+    const title = document.getElementById('recName').textContent;
+    const desc = document.getElementById('recDesc').textContent;
+    Kakao.Share.sendDefault({
+      objectType:'text',
+      text:`추천 LLM: ${title}\n${desc}`,
+      link:{ mobileWebUrl:location.href, webUrl:location.href }
+    });
+  }
+
+  document.getElementById('saveImgBtn').addEventListener('click', captureResult);
+  document.getElementById('shareBtn').addEventListener('click', shareNative);
+  document.getElementById('kakaoBtn').addEventListener('click', shareKakao);
+
+  // Init
+  loadConfigs().then(renderSteps).catch(err=>{
+    pill.textContent = '구성 로드 실패';
+    console.error(err);
+  });
+</script>
+</body>
+</html>
