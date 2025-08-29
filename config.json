@@ -17,16 +17,16 @@
           "label": "검색·사실 탐색 (출처 포함)",
           "weights": {
             "perplexity": 3,
-            "gpt5": 1
+            "gpt5": 0
           }
         },
         {
           "value": "coding",
           "label": "코딩·에이전트·자동화",
           "weights": {
-            "claude": 3,
+            "claude": 2,
             "gpt5": 2,
-            "gemini": 2
+            "gemini": 1
           }
         },
         {
@@ -41,9 +41,9 @@
           "value": "multimodal",
           "label": "이미지/비디오 등 멀티모달",
           "weights": {
-            "gemini": 2,
-            "grok": 2,
-            "gpt5": 2
+            "gemini": 1,
+            "grok": 1,
+            "gpt5": 1
           }
         }
       ]
@@ -57,7 +57,7 @@
           "value": "yes",
           "label": "필요해요",
           "weights": {
-            "grok": 3,
+            "grok": 1,
             "perplexity": 3
           }
         },
@@ -94,8 +94,8 @@
           "value": "vision",
           "label": "시각 이해 (이미지 분석)",
           "weights": {
-            "gemini": 2,
-            "gpt5": 2,
+            "gemini": 1,
+            "gpt5": 1,
             "claude": 1
           }
         },
@@ -103,8 +103,8 @@
           "value": "audio",
           "label": "음성",
           "weights": {
-            "gemini": 1,
-            "gpt5": 1,
+            "gemini": 0,
+            "gpt5": 2,
             "grok": 1
           }
         }
@@ -119,17 +119,17 @@
           "value": "short",
           "label": "짧은 문답",
           "weights": {
-            "gpt5": 1,
-            "claude": 1,
+            "gpt5": 3,
+            "claude": 3,
             "gemini": 1,
-            "grok": 1
+            "grok": 2
           }
         },
         {
           "value": "mid",
           "label": "일반적인 작업",
           "weights": {
-            "gpt5": 1,
+            "gpt5": 3,
             "claude": 1,
             "gemini": 0
           }
@@ -235,7 +235,7 @@
           "value": "summary",
           "label": "요약/출처",
           "weights": {
-            "perplexity": 3,
+            "perplexity": 5,
             "gemini": 0,
             "grok": 0
           }
@@ -298,7 +298,8 @@
           "value": "mobile",
           "label": "모바일 중심",
           "weights": {
-            "perplexity": 0
+            "perplexity": 0,
+            "gpt5": 3
           }
         },
         {
