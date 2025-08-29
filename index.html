@@ -5,6 +5,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>나에게 맞는 AI 서비스는 어떤 것일까?</title>
+  <meta name="description" content="간단한 문답으로 취향과 목적에 맞는 AI 서비스를 추천받아보세요.">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kissdesty.github.io/ailove">
+  <meta property="og:title" content="나에게 맞는 AI 서비스는 어떤 것일까?">
+  <meta property="og:description" content="간단한 문답으로 취향과 목적에 맞는 AI 서비스를 추천받아보세요.">
+  <meta property="og:image" content="https://kissdesty.github.io/ailove/nahornlab_logo_small.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://kissdesty.github.io/ailove">
+  <meta property="twitter:title" content="나에게 맞는 AI 서비스는 어떤 것일까?">
+  <meta property="twitter:description" content="간단한 문답으로 취향과 목적에 맞는 AI 서비스를 추천받아보세요.">
+  <meta property="twitter:image" content="https://kissdesty.github.io/ailove/nahornlab_logo_small.png">
+  
   <link rel="icon" type="image/png" href="nahornlab_logo_small.png">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
@@ -298,6 +314,19 @@
       margin-left: auto;
     }
 
+    /* 로고 이미지 스타일 */
+    .brand-logo {
+      display: block;
+      margin: 16px auto 8px;
+      height: 32px;
+      opacity: 0.6;
+      transition: opacity 0.2s ease;
+    }
+
+    .brand-logo:hover {
+      opacity: 0.8;
+    }
+
     @media (max-width:520px) {
       .footer-row {
         justify-content: center
@@ -349,7 +378,10 @@
       </div>
     </div>
 
-    <footer style="margin-top:18px;color:var(--text-muted);font-size:12px;">
+    <!-- 브랜드 로고 -->
+    <img src="nahornlab_logo_small.png" alt="나혼LAB" class="brand-logo">
+
+    <footer style="margin-top:8px;color:var(--text-muted);font-size:12px;">
       <div class="footer-row">
         <span>©2025 나혼LAB</span>
         <span class="footer-right">
