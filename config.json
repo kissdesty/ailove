@@ -127,19 +127,19 @@
           "value": "short",
           "label": "짧은 문답",
           "weights": {
-            "gpt5": 3,
-            "claude": 3,
+            "gpt5": 1,
+            "claude": 1,
             "gemini": 1,
-            "grok": 2
+            "grok": 1
           }
         },
         {
           "value": "mid",
           "label": "일반적인 작업",
           "weights": {
-            "gpt5": 3,
+            "gpt5": 1,
             "claude": 1,
-            "gemini": 0
+            "gemini": 1
           }
         },
         {
@@ -212,6 +212,7 @@
           "label": "무료 중심",
           "weights": {
             "perplexity": 2,
+            "gemini": 2,
             "grok": 1
           }
         },
