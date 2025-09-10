@@ -51,13 +51,14 @@
     {
       "key": "realtime",
       "type": "single",
-      "label": "실시간 최신 정보 반영이 필요한가요?",
+      "label": "실시간 최신 정보 (검색 등) 반영이 필요한가요?",
       "options": [
         {
           "value": "yes",
           "label": "필요해요",
           "weights": {
             "grok": 1,
+            "gpt5": 3,
             "perplexity": 3
           }
         },
@@ -77,9 +78,9 @@
           "value": "imggen",
           "label": "이미지 생성",
           "weights": {
-            "gemini": 2,
+            "gemini": 3,
             "grok": 2,
-            "gpt5": 2
+            "gpt5": 1
           }
         },
         {
@@ -111,7 +112,7 @@
           "value": "audio",
           "label": "음성",
           "weights": {
-            "gemini": 0,
+            "gemini": 1,
             "gpt5": 2,
             "grok": 1
           }
