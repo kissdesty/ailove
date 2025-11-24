@@ -17,7 +17,8 @@
           "label": "검색·사실 탐색 (출처 포함)",
           "weights": {
             "perplexity": 2,
-            "gpt5": 0
+            "gpt5": 2,
+            "gemini": 3
           }
         },
         {
@@ -25,14 +26,15 @@
           "label": "코딩·에이전트·자동화",
           "weights": {
             "claude": 3,
-            "gpt5": 1,
-            "gemini": 2
+            "gpt5": 2,
+            "gemini": 3
           }
         },
         {
           "value": "writing",
           "label": "글쓰기·문서 생산성",
           "weights": {
+            "gemini": 4,
             "gpt5": 2,
             "claude": 2
           }
@@ -41,7 +43,7 @@
           "value": "multimodal",
           "label": "이미지/비디오 등 멀티모달",
           "weights": {
-            "gemini": 2,
+            "gemini": 3,
             "grok": 2,
             "gpt5": 1
           }
@@ -58,6 +60,7 @@
           "label": "필요해요",
           "weights": {
             "grok": 1,
+            "gemini": 2,
             "gpt5": 3,
             "perplexity": 3
           }
@@ -78,7 +81,7 @@
           "value": "imggen",
           "label": "이미지 생성",
           "weights": {
-            "gemini": 3,
+            "gemini": 4,
             "grok": 2,
             "gpt5": 1
           }
@@ -88,14 +91,14 @@
           "label": "동영상 생성",
           "weights": {
             "grok": 2,
-            "gemini": 2
+            "gemini": 3
           }
         },
         {
           "value": "vision",
           "label": "시각 이해 (이미지 분석)",
           "weights": {
-            "gemini": 1,
+            "gemini": 2,
             "gpt5": 1,
             "claude": 1
           }
@@ -104,7 +107,7 @@
           "value": "ocr",
           "label": "문서 이해 (OCR 등)",
           "weights": {
-            "gemini": 1,
+            "gemini": 2,
             "gpt5": 1
           }
         },        
@@ -171,9 +174,9 @@
           "value": "high",
           "label": "고난도(수학/과학/코딩)",
           "weights": {
-            "claude": 1,
-            "gpt5": 1,
-            "gemini": 1
+            "claude": 2,
+            "gpt5": 2,
+            "gemini": 2
           }
         }
       ]
@@ -231,7 +234,7 @@
           "weights": {
             "gpt5": 1,
             "claude": 1,
-            "gemini": 0
+            "gemini": 1
           }
         }
       ]
@@ -246,7 +249,7 @@
           "label": "요약/출처",
           "weights": {
             "perplexity": 5,
-            "gemini": 0,
+            "gemini": 2,
             "grok": 0
           }
         },
@@ -254,16 +257,16 @@
           "value": "code",
           "label": "코드",
           "weights": {
-            "claude": 2,
+            "claude": 3,
             "gpt5": 2,
-            "gemini": 1
+            "gemini": 3
           }
         },
         {
           "value": "image",
           "label": "이미지",
           "weights": {
-            "gemini": 2,
+            "gemini": 3,
             "grok": 1,
             "gpt5": 1
           }
@@ -272,8 +275,8 @@
           "value": "video",
           "label": "영상",
           "weights": {
-            "grok": 1,
-            "gemini": 2
+            "grok": 2,
+            "gemini": 3
           }
         }
       ]
@@ -309,15 +312,17 @@
           "label": "모바일 중심",
           "weights": {
             "perplexity": 0,
-            "gpt5": 3
+            "gpt5": 3,
+            "gemini": 3
           }
         },
         {
           "value": "web",
           "label": "웹/데스크톱(API)",
           "weights": {
-            "gpt5": 0,
-            "gemini": 0
+            "gpt5": 2,
+            "gemini": 2,
+            "claude": 2
           }
         }
       ]
